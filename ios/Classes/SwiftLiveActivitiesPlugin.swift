@@ -255,7 +255,9 @@ public class SwiftLiveActivitiesPlugin: NSObject, FlutterPlugin, FlutterStreamHa
         deliveryActivity = try Activity.request(
           attributes: liveDeliveryAttributes,
           content: activityContent,
-          pushType: .token)
+          //pushType: .token
+          pushType: nil   // TODO: when push notification is added in capabilities, switch to .token
+        )
       } catch (let error) {
         result(FlutterError(code: "LIVE_ACTIVITY_ERROR", message: "can't launch live activity", details: error.localizedDescription))
       }
